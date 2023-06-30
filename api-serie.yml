@@ -1,13 +1,12 @@
 server:
-  port: 8085
+  port: 8086
 spring:
   application:
-    name: movie-service
-  datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3308/movie-dev
-    username: usr-movie
-    password: pwd-movie
+    name: serie-service
+  data:
+    mongodb:
+      uri: mongodb://usr_serie:pwd_serie@localhost:27019/?authMechanism=SCRAM-SHA-1&authSource=admin
+      database: test
   rabbitmq:
     host: localhost
     port: 5672
@@ -15,14 +14,10 @@ spring:
     password: guest
   zipkin:
     baseUrl: http://localhost:9411/
-  jpa:
-    hibernate.ddl-auto: update
-    generate-ddl: true
-    show-sql: true
-   
+    
 info:
   application:
-    name: movie-service
+    name: serie-service
 
 eureka:
   instance:

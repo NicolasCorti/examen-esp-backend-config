@@ -3,8 +3,25 @@ server:
 spring:
   application:
     name: catalog-service
+  data:
+    mongodb:
+      uri: mongodb://usr_serie:pwd_serie@localhost:27019/?authMechanism=SCRAM-SHA-1&authSource=admin
+      database: test
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  zipkin:
+    baseUrl: http://localhost:9411/
+
+info:
+  application:
+    name: catalog-service
 
 eureka:
+  healthcheck:
+     enabled: true
   instance:
     hostname: localhost
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
